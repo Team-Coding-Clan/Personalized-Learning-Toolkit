@@ -24,3 +24,7 @@ WEIGHTAGE
 3. 35%
 4. 10%
 5. 30%
+
+#### Our Idea
+
+[![Watch the video](https://github.com/Team-Coding-Clan/HackYuva/blob/main/images/cover.png)](https://www.youtube.com/watch?v=C6KoXrdhFEo&list=PLBun4oe2RUas0V0AKNGj2mxTsltjsSKry&index=1)
