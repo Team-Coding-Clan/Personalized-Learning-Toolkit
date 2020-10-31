@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Connect</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+    <h2 align= "center"><b><u>Fill us in</u></b></h2>
+        <h3 align="center">Enter details</h3>
+
+    <table bgcolor="pink" align="center">
+        <tr><td>LinkedIn profile</td>
+            <td>{{form.linkedin}}</td>
+        </tr>
+        <tr><td>Github profile</td><td>{{form.github}}</td></tr>
+        <tr></tr>
+        <tr><td>MyWays profile</td><td>{{form.myways}}</td></tr>
+        <tr><td>Courses of interest</td><td>{{form.courses}}</td></tr>
+        <tr><td>Gender</td><td>{{form.gender}}</td></tr>
+        <tr><td>Skills</td><td>{{form.skill1}}</td></tr>
+        <tr><td>Skill 2</td><td>{{form.skill2}}</td></tr>
+        <tr><td>Skill 3</td><td>{{form.skill3}}</td></tr>
+        <tr><td>Skill 4</td><td>{{form.skill4}}</td></tr>
+
+        <tr><td><input type="submit"></td><td><input type="reset"></td></tr>
+        </table>
+
+</form>
+</body>
+</html>
