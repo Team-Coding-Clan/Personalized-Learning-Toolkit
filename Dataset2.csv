@@ -1,0 +1,18 @@
+﻿Language/Topic,Name,Course/Project,Link,University/Company/YouTube Page,Ratings,Level,Reviews,Enrolled Students,Payment,Views
+SQL,SQL Joins,PROJECT,https://www.coursera.org/projects/sql-joins,Coursera Project Network,4.7,Beginner,7,NA,P,NA
+SQL,Introduction to Relational Database and SQL,PROJECT,https://www.coursera.org/projects/introduction-to-relational-database-and-sql,Coursera Project Network,4.5,Beginner,1290,NA,P,NA
+SQL,Intermediate Relational Database and SQL,PROJECT,https://www.coursera.org/projects/intermediate-rdb-sql,Coursera Project Network,4.5,Intermediate,354,NA,P,NA
+SQL,Beginning SQL Server,PROJECT,https://www.coursera.org/projects/beginning-sql-server,Coursera Project Network,4.5,Beginner,624,NA,P,NA
+SQL,Mastering SQL Joins,PROJECT,https://www.coursera.org/projects/mastering-sql-joins,Coursera Project Network,4.1,Advanced,11,NA,P,NA
+SQL,Advanced Relational Database and SQL,PROJECT,https://www.coursera.org/projects/advanced-rdb-sql,Coursera Project Network,4.6,Advanced,181,NA,P,NA
+SQL,Retrieve Data with Multiple-Table SQL Queries,PROJECT,https://www.coursera.org/projects/multiple-table-sql-queries,Coursera Project Network,4.7,Intermediate,66,NA,P,NA
+Python,Introduction to Python,PROJECT,https://www.coursera.org/projects/introduction-to-python,Coursera Project Network,4.5,Beginner,1449,23k students,P,NA
+Python,Selenium Grid - Running Selenium tests in parallel,PROJECT,https://www.coursera.org/projects/selenium-grid-running-selenium-tests-in-parallel,Coursera Project Network,4.5,Beginner,8,NA,P,NA
+Python,COVID19 Data Analysis Using Python, PROJECT,https://www.coursera.org/projects/covid19-data-analysis-using-python,Coursera Project Network,4.6,Intermediate,1476,20k students,P,NA
+JavaScript,Introduction to Javascript: The Basics,PROJECT,https://www.coursera.org/projects/intro-to-javascript-the-basics,Coursera Project Network,4.4,Beginner,126,NA,P,NA
+JavaScript,Modern JavaScript: ES6 Basics,PROJECT,https://www.coursera.org/projects/modern-javascript-es6-basics,Coursera Project Network,4.5,Intermediate,362,NA,P,NA
+JavaScript,RESTful API with HTTP and JavaScript,PROJECT,https://www.coursera.org/projects/restful-api-http-javascript,Coursera Project Network,4.3,Intermediate,425,NA,P,NA
+JavaScript,Become a JavaScript Pro with these 7 Skills,PROJECT,https://www.coursera.org/projects/become-a-js-pro-7-skills,Coursera Project Network,4.5,Intermediate,92,NA,P,NA
+Java,Object-Oriented Programming with Java,PROJECT,https://www.coursera.org/projects/object-oriented-programming-java,NA,4.5,Intermediate,1055,NA,P,NA
+Deep Learning,Detecting COVID-19 with Chest X-Ray using PyTorch,PROJECT,https://www.coursera.org/projects/covid-19-detection-x-ray,Coursera Project Network,4.6,Intermediate,220,NA,p,NA
+AI,TensorFlow for AI: Computer Vision Basics,PROJECT,https://www.coursera.org/projects/tensorflow-for-ai-computer-vision-basics,Coursera Project Network,4.3,Intermediate,19,NA,p,NA
