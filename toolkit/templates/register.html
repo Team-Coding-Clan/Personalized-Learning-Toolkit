@@ -1,0 +1,58 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+        <h2 align= "center"><b><u>Registration Form</u></b></h2>
+        <h3 align="center">Enter details</h3>
+
+    <table bgcolor="yellow" align="center">
+        <tr><td>Username</td>
+            <td>{{form.username}}</td>
+        </tr>
+        <tr><td>E-mail</td><td>{{form.email}}</td></tr>
+        <tr></tr>
+        <tr><td>Password</td><td>{{form.password}}</td></tr>
+        <tr><td>Confirm Password</td><td>{{form.confirmpassword}}</td></tr>
+        <tr><td><input type="submit"></td><td><input type="reset"></td></tr>
+        </table>
+
+</form>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/register.css" %}">
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+        <h2 align= "center"><font size=60px color="grey" face="comic sans ms"><b><u>
+       Registeration Form!</u></b></font></h2>
+
+    <table bgcolor="yellow" class="center">
+        <tr><td>Username</td>
+            <td>{{form.username}}</td>
+        </tr>
+        <tr><td>E-mail</td><td>{{form.email}}</td></tr>
+        <tr></tr>
+        <tr><td>Password</td><td>{{form.password}}</td></tr>
+        <tr><td>Confirm Password</td><td>{{form.confirmpassword}}</td></tr>
+        <tr><td><input type="submit"></td><td><input type="reset"></td></tr>
+        </table>
+
+</form>
+</body>
+</html>

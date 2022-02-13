@@ -1,0 +1,37 @@
+<!--
+<html>
+<head>
+<title>home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
+</head>
+<body>
+<h1><b><u>WELCOME TO OUR WEBSITE!</b></u></h1><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><h2> HELLO! USER..</h2>
+<button id="the"> <a href={% url 'profile' %}>COMPLETE YOUR PROFILE </a></button><br>
+<br><a href="rec.html"> FIND COURSES RECOMMENDATION FOR YOU </a>
+</body>
+</html>
+-->
+
+
+<html>
+<head>
+<title>home</title>
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
+</head>
+<body>
+<h1><b><u>WELCOME TO OUR WEBSITE!</b></u></h1><br><br>
+<br><br><br><br><br><br><br><br><h2> HELLO! USER..</h2>
+<div class="navbar">
+<nav>
+<ul >
+<li><a href={% url 'profile' %}>COMPLETE YOUR PROFILE </a></li><br>
+<br><li><a href={% url 'recommendation' %}> FIND RECOMMENDED COURSES FOR YOU </a></li>
+</nav>
+</div>
+</ul>
+</body>
+</html>
+

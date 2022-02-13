@@ -1,0 +1,59 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendations Form</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+    <h2 align= "center"><b><u>Fill us in</u></b></h2>
+        <h3 align="center">Enter details</h3>
+
+    <table bgcolor="yellow" align="center">
+        <tr><td>First name</td><td>{{form.fname}}</td></tr>
+        <tr><td>Last name</td><td>{{form.lname}}</td></tr>
+        <tr><td>LinkedIn link</td><td>{{form.linkedin}}</td></tr>
+        <tr><td>Github link</td><td>{{form.github}}</td></tr>
+        <tr><td>Hackerrank</td><td>{{form.hackerrank}}</td></tr>
+        <tr><td>MyWays link</td><td>{{form.myways}}</td></tr>
+        <tr><td>Your Skills</td><td>{{form.skillknown}}</td></tr>
+        <tr><td>Skills to learn</td><td>{{form.skilllearn}}</td></tr>
+        <tr><td>Gender</td><td>{{form.gender}}</td></tr>
+        <tr><td><input type="submit"></td><td>
+        </table>
+
+</form>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Form</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <table bgcolor="lightblue" class="center">
+        <caption><font face="arial black" color="white" size=35><u>Enter Your Interests</u></font></caption><br><br><br><br>
+        <tr><td><font face="comic sans ms">First name</font></td><td>{{form.fname}}</td></tr>
+        <tr><td><font face="comic sans ms">Last name</font></td><td>{{form.lname}}</td></tr>
+        <tr><td><font face="comic sans ms">LinkedIn link</font></td><td>{{form.linkedin}}</td></tr>
+        <tr><td><font face="comic sans ms">Github link</font></td><td>{{form.github}}</td></tr>
+        <tr><td><font face="comic sans ms">Hackerrank</font></td><td>{{form.hackerrank}}</td></tr>
+        <tr><td><font face="comic sans ms">MyWays link</font></td><td>{{form.myways}}</td></tr>
+        <tr><td><font face="comic sans ms">Your Skills</font></td><td>{{form.skillknown}}</td></tr>
+        <tr><td><font face="comic sans ms">Skills to learn</font></td><td>{{form.skilllearn}}</td></tr>
+        <tr><td><font face="comic sans ms">Gender</font></td><td>{{form.gender}}</td></tr>
+        <tr><td><input type="submit"></td><td>
+    </table>
+
+</form>
+</body>
+</html>

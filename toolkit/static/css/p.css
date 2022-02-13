@@ -1,0 +1,46 @@
+
+body{
+     background: url(https://image.shutterstock.com/image-illustration/abstract-blue-background-use-design-260nw-1688543422.jpg) no-repeat center
+     fixed;
+     background-size: cover;
+}
+h1{ 
+      font-size: 35px;
+      text-align: center;
+      color: yellow;
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+}
+.links{
+}
+.links a{
+      font-size: 40px;
+      color: green;
+      font-family: sans-serif;
+      font-weight: bold;
+
+}
+.sections{
+      margin: 2;
+      padding: 25;
+      font-size:30px;
+      font-weight:bold;
+
+}
+.sections button{
+      width:180px;
+      display:inline-block;
+      margin:5% 20px;
+      padding:20px 0px;
+      text-align:center;
+      font-family:Arial;
+      font-size:16px;
+      font-weight:bold;
+      color#fff;
+      position:relative;
+      text-decoration:none;
+      letter-spacing:1.5px;
+      background: lightgrey;
+      border-radius: 10px;
+      box-shadow:0 0 30px red;
+}

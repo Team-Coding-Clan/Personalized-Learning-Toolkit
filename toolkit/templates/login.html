@@ -1,0 +1,53 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+        <h2 align= "center"><b><u>Sign In</u></b></h2>
+        <h3 align="center">Enter details</h3>
+
+    <table bgcolor="yellow" align="center">
+        <tr><td>Username</td>
+            <td>{{form.username}}</td>
+        </tr>
+        <tr><td>Password</td><td>{{form.password}}</td></tr>
+        <tr><td><input type="submit"></td></tr>
+        </table>
+
+</form>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}" }>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+
+        <font size=40 color="blue"><h1 align="center"><b><u>Sign In</u></b></h1></font>
+        <font size=20 color="purple"><h3 align="center">Enter details</h3></font>
+
+    <table class="center">
+        <tr><td>Username</td>
+            <td>{{form.username}}</td>
+        </tr>
+        <tr><td>Password</td><td>{{form.password}}</td></tr>
+        <tr><td><input type="submit"></td></tr>
+        </table>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Recommendations</title>
+     {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/rec.css" %}" }>
+</head>
+<body>
+
+   <form action = "/external/" method = "post">
+        {% csrf_token %}
+     <div class="container">
+         <div class="navbar">
+          <nav>
+              <ul>
+                  <li><a href="python.html">PYTHON</a></li>
+                  <li><a href="SQL.html">SQL</a></li>
+                  <li><a href="webd.html">WEB DEVELOPMENT</a></li>
+                  <li><a href="java.html">JAVA</a></li>
+
+              </ul>
+          </nav>
+          </div>
+          <div class="row">
+              <div class="col">
+
+                  <h1>Recommendations For You</h1>
+                  {{ data }}<br><br>
+                  <input type="submit" value="Execute code">
+              </div>
+
+           </div>
+     </div>
+   </form>
+</body>
+</html>
