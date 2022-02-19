@@ -1,11 +1,12 @@
 from django import forms
-from apis.models import registeration, connect
+from apis.models import connect
 from django import forms
+from django.contrib.auth.models import User
 
 
 class Register(forms.ModelForm):
     class Meta:
-        model = registeration
+        model = User
         fields = "__all__"
 
 
@@ -14,7 +15,7 @@ class Login(forms.Form):
     password = forms.CharField(max_length=250)
 
     class Meta:
-        model = registeration
+        model = User
         fields = ("username", "password")
 
 
