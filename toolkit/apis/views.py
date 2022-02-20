@@ -1,16 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import Register, Login
 from django.db import connection
 import sys
 from subprocess import run, PIPE
-from .forms import Connect
+from .forms import connect
 
 from .serializers import MyTokenObtainPairSerializer
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from django.contrib.auth.models import User
-from .serializers import RegisterSerializer
+from .serializers import RegisterSerializer, ConnectSerializer
 from rest_framework import generics
 
 from rest_framework.permissions import IsAuthenticated
@@ -19,7 +19,12 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from django.views.decorators.csrf import csrf_protect
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.status import HTTP_200_OK, HTTP_404_NOT_FOUND, HTTP_400_BAD_REQUEST
 
+
+# login
 class MyObtainTokenPairView(TokenObtainPairView):
     permission_classes = (AllowAny,)
     serializer_class = MyTokenObtainPairSerializer
@@ -47,43 +52,6 @@ class APILogoutView(APIView):
         return Response({"status": "OK, goodbye"})
 
 
-def register(request):
-    if request.method == "POST":
-        form = Register(request.POST)
-        if form.is_valid():
-            try:
-                form.save()
-                return render(request, "register.html", {"msg": "Successfully registered\nWelcome!."})
-                # return render()
-            except:
-                print("pass")
-                pass
-        else:
-            form = Register
-            print("Registeration unsuccessful")
-    return render(request, "register.html", {"form": form})
-
-
-def login(request):
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-
-        cursor = connection.cursor()
-        p = cursor.execute(
-            "Select * from mydatabase.userdata where username = '" + username + "' and password = '" + password + "'")
-        print(p)
-        data = cursor.fetchone()
-        print(data)
-        if (data is None):
-            return render(request, 'login.html', {'context': 'Not a user !'})
-        else:
-            return render(request, 'homepage.html')
-    else:
-        form = Login()
-    return render(request, "login.html", {"form": form})
-
-
 def home(request):
     return render(request, "homepage.html")
 
@@ -105,16 +73,22 @@ def recommend(request):
 
 # Create your views here.
 
-def userConnect(request):
-    if request.method == "POST":
-        form = Connect(request.POST)
-        if form.is_valid():
-            try:
-                form.save()
-                return render(request, "userConnect.html", {"msg": "Connected."})
-            except:
-                pass
-    else:
-        form = Connect()
-        print("Not connected.")
-    return render(request, "userConnect.html", {"form": form})
+# def userConnect(request):
+#     if request.method == "POST":
+#         form = connect(request.POST)
+#         if form.is_valid():
+#             try:
+#                 form.save()
+#                 return render(request, "userConnect.html", {"msg": "Connected."})
+#                 # return Response({'status': 'Success'}, status=HTTP_200_OK)
+#             except:
+#                 print("pass")
+#                 pass
+#     else:
+#         form = connect()
+#         print("Not connected.")
+#     return Response({'status': 'Success'}, status=HTTP_400_BAD_REQUEST)
+
+class ConnectView(generics.CreateAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = ConnectSerializer

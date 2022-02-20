@@ -3,6 +3,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
+from .models import connect
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -51,3 +52,17 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+
+class ConnectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = connect
+        fields = '__all__'
+
+    def create(self, validated_data):
+        """
+        Create and return a new `connect` instance, given the validated data.
+        """
+        return connect.objects.create(**validated_data)
+
+

@@ -19,9 +19,11 @@ urlpatterns = [
     path('login/', views.MyObtainTokenPairView.as_view(), name='token_obtain_pair'),
     path('logout_token/', views.APILogoutView.as_view(), name='logout_token'),
 
-    path('connect/', views.userConnect, name="profile"),
+    # get additional information
+    path('connect/', views.ConnectView.as_view(), name="profile"),
+
     # path('login/', views.login),
-    path('home/', views.home),
+    path('home/', views.home, name='homepage'),
     path('recommendation/', views.recommend, name="recommendation"),
     path('external/', views.external),
 
