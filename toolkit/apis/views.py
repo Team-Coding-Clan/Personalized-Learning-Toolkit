@@ -89,6 +89,27 @@ def recommend(request):
 #         print("Not connected.")
 #     return Response({'status': 'Success'}, status=HTTP_400_BAD_REQUEST)
 
-class ConnectView(generics.CreateAPIView):
+class ConnectView(generics.GenericAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = ConnectSerializer
+
+    # def update(self, request, *args, **kwargs):
+    #     instance = self.get_object()
+    #     # update the instance
+    #     instance.linkedin = request.data.get('linkedin', instance.linkedin)
+    #     instance.github = request.data.get('github', instance.github)
+    #     instance.known_skills = request.data.get('known_skills', instance.known_skills)
+    #     instance.skills_to_learn = request.data.get('skills_to_learn', instance.skills_to_learn)
+    #     instance.save()
+    #
+    #     serializer = self.get_serializer(instance)
+    #     serializer.is_valid(raise_exception=True)
+    #     self.perform_update(serializer)
+    #
+    #     return Response(serializer.data)
+
+
+class ProfileUpdate(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated,)
+    serializer_class = ConnectSerializer
+    queryset = connect.objects.all()

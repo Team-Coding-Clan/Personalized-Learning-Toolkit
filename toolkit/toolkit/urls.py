@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from apis import views
 from rest_framework_simplejwt.views import TokenRefreshView
+
 # from connect.views import userConnect
 
 
@@ -21,6 +22,7 @@ urlpatterns = [
 
     # get additional information
     path('connect/', views.ConnectView.as_view(), name="profile"),
+    path('update/<int:pk>/', views.ProfileUpdate.as_view(), name="update"),
 
     # path('login/', views.login),
     path('home/', views.home, name='homepage'),

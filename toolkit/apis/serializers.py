@@ -69,3 +69,14 @@ class ConnectSerializer(serializers.ModelSerializer):
             **validated_data
         )
         return info
+
+    def update(self, instance, validated_data):
+        # update the instance
+        instance.linkedin = validated_data.get('linkedin', instance.linkedin)
+        instance.github = validated_data.get('github', instance.github)
+        instance.known_skills = validated_data.get('known_skills', instance.known_skills)
+        instance.skills_to_learn = validated_data.get('skills_to_learn', instance.skills_to_learn)
+
+        instance.save()
+
+        return instance
