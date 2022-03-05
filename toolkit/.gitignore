@@ -1,6 +1,0 @@
-db.sqlite3
-apis/migrations
-apis/__pycache__
-toolkit/__pycache__
-.env
-venv
