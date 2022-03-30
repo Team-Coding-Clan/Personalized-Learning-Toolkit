@@ -11,14 +11,14 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 
 from django.contrib.auth.models import User
 from .serializers import RegisterSerializer, ConnectSerializer
-from rest_framework import generics
+from rest_framework import generics, viewsets
 
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from django.views.generic.detail import DetailView
 from django.views.decorators.csrf import csrf_protect
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.status import HTTP_200_OK, HTTP_404_NOT_FOUND, HTTP_400_BAD_REQUEST
@@ -113,3 +113,15 @@ class ProfileUpdate(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated,)
     serializer_class = ConnectSerializer
     queryset = connect.objects.all()
+
+
+class ProfileDetail(viewsets.ModelViewSet):
+
+    serializer_class = ConnectSerializer
+    queryset = connect.objects.all()
+    permission_classes = (IsAuthenticated,)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = connect(instance)
+        return Response(serializer.data)
