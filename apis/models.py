@@ -8,8 +8,8 @@ from django.contrib.auth.models import User
 
 class connect(models.Model):
     linkedin = models.URLField(default=None)
-    github = models.CharField(max_length=500, default=None)
-    # known_skills = models.CharField(max_length=50, default=None)  # todo: csv ?
+    github = models.URLField(default = None)
+    known_skills = models.CharField(max_length=50, default=None) # todo: csv ?
     skills_to_learn = models.CharField(max_length=50, default=None)
     user_id = models.OneToOneField(User, on_delete=models.CASCADE)
 

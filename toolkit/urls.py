@@ -23,7 +23,6 @@ urlpatterns = [
     # get additional information
     path('connect/', views.ConnectView.as_view(), name="profile"),
     path('update/<int:pk>/', views.ProfileUpdate.as_view(), name="update"),
-    path('detail/', views.ProfileDetail.as_view({'get': 'list'}), name="detail"),
 
     # path('login/', views.login),
     path('home/', views.home, name='homepage'),
