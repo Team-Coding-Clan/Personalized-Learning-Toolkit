@@ -73,13 +73,18 @@ class ConnectSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         # update the instance
-        instance.github = validated_data.get('github', instance.github)
-        instance.known_skills = validated_data.get('known_skills', instance.known_skills)
-        instance.skills_to_learn = validated_data.get('skills_to_learn', instance.skills_to_learn)
+        user_id = self.context['request'].user.pk
+        print(user_id)
+        print(instance.id)
+        if (instance.id == user_id):
+            print("here")
+            instance.github = validated_data.get('github', instance.github)
+            instance.skills_to_learn = validated_data.get('skills_to_learn', instance.skills_to_learn)
 
-        instance.save()
+            instance.save()
 
         return instance
+
 
 
 class UserSerializer(serializers.ModelSerializer):

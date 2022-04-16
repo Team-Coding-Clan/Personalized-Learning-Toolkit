@@ -67,6 +67,13 @@ class CreateConnectView(generics.CreateAPIView):
     #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class UpdateConnectView(generics.UpdateAPIView):
+    queryset = connect.objects.all()
+    serializer_class = ConnectSerializer
+    permission_classes = (IsAuthenticated,)
+    lookup_field = 'user_id_id'
+
+
 class ListUsers(APIView):
     """
     View to list all users in the system.

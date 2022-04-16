@@ -25,7 +25,8 @@ urlpatterns = [
     path('profile/', views.ProfileView.as_view(), name="profile"),
     path('connect/', views.CreateConnectView.as_view(), name="profile"),
 
-
+    # update profile
+    path('update_profile/<int:user_id_id>/', views.UpdateConnectView.as_view(), name='update_profile'),
     path('home/', views.home, name='homepage'),
 
 ]
