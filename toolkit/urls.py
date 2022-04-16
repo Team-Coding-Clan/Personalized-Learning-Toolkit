@@ -21,13 +21,11 @@ urlpatterns = [
     path('logout_token/', views.APILogoutView.as_view(), name='logout_token'),
 
     # get additional information
-    path('connect/', views.ConnectView.as_view(), name="profile"),
-    path('update/<int:pk>/', views.ProfileUpdate.as_view(), name="update"),
-    path('detail/', views.ProfileDetail.as_view({'get': 'list'}), name="detail"),
+    path('user/', views.ListUsers.as_view(), name="profile"),
+    path('profile/', views.ProfileView.as_view(), name="profile"),
+    path('connect/', views.CreateConnectView.as_view(), name="profile"),
 
-    # path('login/', views.login),
+
     path('home/', views.home, name='homepage'),
-    path('recommendation/', views.recommend, name="recommendation"),
-    path('external/', views.external),
 
 ]

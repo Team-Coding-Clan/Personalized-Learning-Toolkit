@@ -55,17 +55,15 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class ConnectSerializer(serializers.ModelSerializer):
-    user_id = RegisterSerializer(many=False)  # many=False; one to one
-
     class Meta:
         model = connect
-        # exclude = ('user_id',)
-        fields = '__all__'
+        exclude = ('user_id',)
 
     def create(self, validated_data):
         """
         Create and return a new `connect` instance, given the validated data.
         """
+        print(self.context)
         user = self.context['request'].user
         info = connect.objects.create(
             user_id=user,
@@ -82,3 +80,16 @@ class ConnectSerializer(serializers.ModelSerializer):
         instance.save()
 
         return instance
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'first_name', 'email']
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = connect
+        fields = ['linkedin', 'skills_to_learn', 'github', 'user_id_id']
+        depth = 1
