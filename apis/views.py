@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, BlacklistedToken
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import IsAdminUser
 
 
 # login
@@ -73,6 +74,9 @@ class UpdateConnectView(generics.UpdateAPIView):
     permission_classes = (IsAuthenticated,)
     lookup_field = 'user_id_id'
 
+class IsSuperUser(IsAdminUser):
+    def has_permission(self, request, view):
+        return bool(request.user and request.user.is_superuser)
 
 class ListUsers(APIView):
     """
@@ -80,13 +84,13 @@ class ListUsers(APIView):
 
     * Requires authentication.
     """
-    permission_classes = [IsAuthenticated]
+    permission_classes = (IsSuperUser,)
 
     def get(self, request, format=None):
         """
         Return particular user
         """
-        data = User.objects.filter(id=request.user.pk)
+        data = User.objects.all()
         serializer_data = UserSerializer(data=data, many=True)
         serializer_data.is_valid()
         return Response(serializer_data.data)
@@ -104,7 +108,7 @@ class ProfileView(APIView):
         """
         Return particular user
         """
-        print(request.user)
+        print(request.user.pk)
         data = connect.objects.filter(user_id_id=request.user.pk)
         print(data)
         serializer_data = ProfileSerializer(data=data, many=True)

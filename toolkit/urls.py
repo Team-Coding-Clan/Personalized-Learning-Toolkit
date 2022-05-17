@@ -21,7 +21,7 @@ urlpatterns = [
     path('logout_token/', views.APILogoutView.as_view(), name='logout_token'),
 
     # get additional information
-    path('user/', views.ListUsers.as_view(), name="profile"),
+    path('users/', views.ListUsers.as_view(), name="profile"),
     path('profile/', views.ProfileView.as_view(), name="profile"),
     path('connect/', views.CreateConnectView.as_view(), name="profile"),
 
