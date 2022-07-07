@@ -28,10 +28,11 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('username', 'password', 'password2', 'email', 'first_name', 'last_name')
+        fields = (
+            'username', 'password', 'password2', 'email', 'first_name')  # removed first and last names and added name
         extra_kwargs = {
             'first_name': {'required': True},
-            'last_name': {'required': True}
+            #     'last_name': {'required': True}
         }
 
     def validate(self, attrs):
@@ -44,8 +45,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(
             username=validated_data['username'],
             email=validated_data['email'],
-            first_name=validated_data['first_name'],
-            last_name=validated_data['last_name'],
+            first_name=validated_data['first_name'],  # name field's value accepted
+            # last_name=validated_data['last_name'],
             password=validated_data['password']
         )
 
@@ -63,7 +64,7 @@ class ConnectSerializer(serializers.ModelSerializer):
         """
         Create and return a new `connect` instance, given the validated data.
         """
-        print(self.context)
+        # print(self.context)
         user = self.context['request'].user
         info = connect.objects.create(
             user_id=user,
@@ -74,17 +75,16 @@ class ConnectSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         # update the instance
         user_id = self.context['request'].user.pk
-        print(user_id)
-        print(instance.id)
+        # print(user_id)
+        # print(instance.id)
         if (instance.id == user_id):
-            print("here")
+            # print("here")
             instance.github = validated_data.get('github', instance.github)
             instance.skills_to_learn = validated_data.get('skills_to_learn', instance.skills_to_learn)
 
             instance.save()
 
         return instance
-
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -97,4 +97,4 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = connect
         fields = ['linkedin', 'skills_to_learn', 'github', 'user_id_id']
-        depth = 1
+        depth = 1  # ?

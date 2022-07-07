@@ -108,9 +108,9 @@ class ProfileView(APIView):
         """
         Return particular user
         """
-        print(request.user.pk)
+        # print(request.user.pk)
         data = connect.objects.filter(user_id_id=request.user.pk)
-        print(data)
+        # print(data)
         serializer_data = ProfileSerializer(data=data, many=True)
         serializer_data.is_valid()
         return Response(serializer_data.data)
