@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 
 # using default Django User model
 
-class connect(models.Model):
+class Profile(models.Model):
     linkedin = models.URLField(default=None)
     github = models.CharField(max_length=500, default=None)
-    # known_skills = models.CharField(max_length=50, default=None)  # todo: csv ?
+    known_skills = models.JSONField(blank = True)
     skills_to_learn = models.CharField(max_length=50, default=None)
     user_id = models.OneToOneField(User, on_delete=models.CASCADE)
 

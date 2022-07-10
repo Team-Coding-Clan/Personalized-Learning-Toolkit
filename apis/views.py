@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import connect
+from .forms import Profile
 
 from .serializers import MyTokenObtainPairSerializer, RegisterSerializer, UserSerializer, ProfileSerializer, \
     ConnectSerializer
@@ -69,7 +69,7 @@ class CreateConnectView(generics.CreateAPIView):
 
 
 class UpdateConnectView(generics.UpdateAPIView):
-    queryset = connect.objects.all()
+    queryset = Profile.objects.all()
     serializer_class = ConnectSerializer
     permission_classes = (IsAuthenticated,)
     lookup_field = 'user_id_id'
@@ -109,7 +109,7 @@ class ProfileView(APIView):
         Return particular user
         """
         # print(request.user.pk)
-        data = connect.objects.filter(user_id_id=request.user.pk)
+        data = Profile.objects.filter(user_id_id=request.user.pk)
         # print(data)
         serializer_data = ProfileSerializer(data=data, many=True)
         serializer_data.is_valid()
