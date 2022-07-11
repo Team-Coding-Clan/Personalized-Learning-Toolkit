@@ -1,5 +1,5 @@
 from django import forms
-from apis.models import Profile
+from apis.models import connect
 from django import forms
 from django.contrib.auth.models import User
 
@@ -21,6 +21,6 @@ class Login(forms.Form):
 
 class Connect(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = connect
         fields = "__all__"
 

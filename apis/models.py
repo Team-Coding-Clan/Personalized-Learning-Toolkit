@@ -6,12 +6,12 @@ from django.contrib.auth.models import User
 
 # using default Django User model
 
-class Profile(models.Model):
+class connect(models.Model):
     linkedin = models.URLField(default=None)
     github = models.CharField(max_length=500, default=None)
-    known_skills = models.JSONField(blank = True)
+    known_skills = models.JSONField(null = True)
     skills_to_learn = models.CharField(max_length=50, default=None)
     user_id = models.OneToOneField(User, on_delete=models.CASCADE)
 
     class Meta:
-        db_table = "profiles"
+        db_table = "connect"

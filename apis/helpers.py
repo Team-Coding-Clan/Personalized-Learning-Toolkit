@@ -13,18 +13,18 @@ def get_skills(github_profile):
     # print(owner.path)
     # get public repositories from user github profile
     repos_url = URL + "users" + owner + "repos"
-    print(repos_url)
+    # print(repos_url)
     response = requests.get(repos_url)
     repos_data = response.json()  # over fetching
     languages = []
     for repo in repos_data:
         repo_name = repo['name']
-        print(repo_name)
+        # print(repo_name)
         lang_url = URL + "repos" + owner + repo_name + "/languages"
-        print(lang_url)
+        # print(lang_url)
         response = requests.get(lang_url)
         language = response.json()
-        print(language)
+        # print(language)
         languages.append(language)
 
     print(languages)
