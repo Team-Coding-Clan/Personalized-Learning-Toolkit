@@ -7,20 +7,6 @@ About Product: A community for college students (technical), personalized for th
 2. Students activity on MyWays platform (career interests, courses purchased/completed, jobs/internships they are applying for etc.)
 3. Students scores in Skill Tests that they are learning/learned
 4. External profiles of student, such as github profile, hacker rank profile, codechef profile etc. (You are free to look up any platform which you feel might be relevant for you)
-#### WHAT YOU'VE TO DO?
-1. Get an overview of data available to you, also check out our site MyWays and MyWays Dashboard, register and see all features available right now.
-2. Come up with different resources already present in the market (online like textual, audio, video, workshops, events, courses, trainings etc.) we can provide to users in career community.
-3. Select the methodology to personalized the recommendations to be given to the user for best learning resources for them, given you know the sub-topics where a user lacks
-4. Select data points for these features from data available
-5. Design a solution for providing these features to our users, for:
-Back End: for providing these features to our users using APIs, 60% weightage;
-Front End: using best visuals/designs so that users can understand/use features easily, 40% weightage.
-WEIGHTAGE
-1. 10%
-2. 15%
-3. 35%
-4. 10%
-5. 30%
 
 #### Our Idea
 
