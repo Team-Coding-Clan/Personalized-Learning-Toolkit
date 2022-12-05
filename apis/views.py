@@ -25,7 +25,7 @@ from rest_framework.status import (HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_403_F
                                    HTTP_409_CONFLICT, HTTP_511_NETWORK_AUTHENTICATION_REQUIRED)
 
 from .helpers import youtube_api, google_books_api
-from .models import Resources
+from .models import Resources, Feedback
 
 
 # login

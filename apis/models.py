@@ -30,7 +30,6 @@ class Resources(models.Model):
 
 class Feedback(models.Model):
     feedback_message = models.CharField(max_length = 10000, blank = True, null = True)
-    user_id = models.OneToOneField(User, on_delete = models.CASCADE)
 
     class Meta:
         db_table = "feedback"

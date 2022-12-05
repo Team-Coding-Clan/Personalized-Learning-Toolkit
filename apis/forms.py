@@ -1,7 +1,8 @@
 from django import forms
-from apis.models import connect
+from apis.models import connect, Feedback
 from django import forms
 from django.contrib.auth.models import User
+
 
 
 class Register(forms.ModelForm):
@@ -38,6 +39,8 @@ class FeedbackForm(forms.Form):
     )
 
     def send_email(self):
+        model = Feedback(feedback_message = self.cleaned_data["message"])
+        model.save()
         send_feedback_email_task.delay(
             self.cleaned_data["email"], self.cleaned_data["message"]
         )
