@@ -163,9 +163,9 @@ def get_recommendations(request):
                 count = Resources.objects.get(skill = skill).count
                 Resources.objects.filter(skill = skill).update(count = count + 1)
             else:
-                resource = Resources(skill = skill, youtube = youtube_api(skill),
-                                     google_books = google_books_api(skill),
-                                     coursera = coursera(skill))
+                resource = Resources(skill = skill, youtube = youtube_api.delay(skill),
+                                     google_books = google_books_api.delay(skill),
+                                     coursera = coursera.delay(skill))
                 resource.save()
         return JsonResponse({'Status': 'True'}, status = HTTP_200_OK, safe = False)
         # call the APIs, this will go into the Task Scheduler

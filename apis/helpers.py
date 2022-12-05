@@ -45,7 +45,7 @@ def get_skills(github_profile):
      '''
 
     for repo in repos_data:
-        if not rate_limit_check():
+        if not rate_limit_check.delay():
             return []
         repo_name = repo['name']
         lang_url = GITHUB_URL + "repos" + owner + repo_name + "/languages"

@@ -68,7 +68,7 @@ class ConnectSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         if connect.objects.filter(user_id = user.pk).exists():
             return connect.objects.get(user_id = user.pk)
-        known_lang = get_skills(validated_data['github'])
+        known_lang = get_skills.delay(validated_data['github'])
         info = connect.objects.update_or_create(
             user_id = user,
             known_skills = known_lang,
