@@ -22,6 +22,7 @@ class Resources(models.Model):
     skill = models.CharField(max_length = 500)
     youtube = models.JSONField()
     google_books = models.JSONField()
+    coursera = models.JSONField()
     count = models.IntegerField(default = 1)
 
     class Meta:

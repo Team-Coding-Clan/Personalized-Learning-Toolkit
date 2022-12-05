@@ -24,7 +24,7 @@ from django.http import JsonResponse
 from rest_framework.status import (HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_403_FORBIDDEN, HTTP_404_NOT_FOUND,
                                    HTTP_409_CONFLICT, HTTP_511_NETWORK_AUTHENTICATION_REQUIRED)
 
-from .helpers import youtube_api, google_books_api
+from .helpers import youtube_api, google_books_api, coursera
 from .models import Resources, Feedback
 
 
@@ -164,7 +164,8 @@ def get_recommendations(request):
                 Resources.objects.filter(skill = skill).update(count = count + 1)
             else:
                 resource = Resources(skill = skill, youtube = youtube_api(skill),
-                                     google_books = google_books_api(skill))
+                                     google_books = google_books_api(skill),
+                                     coursera = coursera(skill))
                 resource.save()
         return JsonResponse({'Status': 'True'}, status = HTTP_200_OK, safe = False)
         # call the APIs, this will go into the Task Scheduler

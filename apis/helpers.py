@@ -2,6 +2,9 @@ from urllib.parse import urlparse
 import requests
 from pprint import pprint
 from celery import shared_task
+from selenium import webdriver
+from time import sleep
+from bs4 import BeautifulSoup
 
 GITHUB_URL = "https://api.github.com/"
 headers = {
@@ -125,3 +128,35 @@ def google_books_api(search_key):
         )
     # print("google_books")
     return books
+
+
+@shared_task
+def coursera(search_key):
+    path = 'C://chromedriver.exe'
+
+    driver = webdriver.Chrome(executable_path = path)
+
+    language = search_key
+    driver.get("https://in.coursera.org/search?query={}&".format(language))
+
+    page_source = driver.page_source
+
+    soup = BeautifulSoup(page_source, 'lxml')
+    courses = []
+    courses_selector = soup.find_all('li', class_ = 'cds-71 css-0 cds-73 cds-grid-item cds-118 cds-126 cds-138')
+
+    # print(courses_selector)
+
+    for course_selector in courses_selector:
+        course_div = course_selector.find('div', class_ = 'css-1pa69gt')
+        if course_div is None:
+            continue
+        course_div_title = course_div.find('div', class_ = 'css-1rj417c').find('h2').get_text()
+        course_title = course_div_title.strip()
+        course_div_img = course_div.find('div', class_ = 'css-1doy6bd').find('img')
+        course_img = course_div_img['src']
+        course_div_url = course_div.find('a')
+        course_url = course_div_url['href']
+        courses.append({'title': course_title, 'img': course_img, 'url': course_url})
+
+    return courses

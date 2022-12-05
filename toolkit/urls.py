@@ -28,7 +28,6 @@ urlpatterns = [
 
     # recommendations
     path('recommendations/', views.get_recommendations, name = "recommendations"),
-    # todo: change endpoint to include user id
 
     path("feedback/", views.FeedbackFormView.as_view(), name = "feedback"),
     path("success/", views.SuccessView.as_view(), name = "success"),
